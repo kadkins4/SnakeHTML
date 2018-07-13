@@ -1,0 +1,36 @@
+#gameCanvas {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#score {
+    text-align: center;
+    font-size: 140px;
+    font-family: 'Antic-Slab', serif;
+}
+
+#resumeGame, #pauseGame, #restartGame {
+    display: none;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+}
+
+.buttonContainer button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-family: 'Antic-Slab', serif;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.complete {
+    text-decoration: line-through;
+    text-decoration-color: chartreuse;
+}
