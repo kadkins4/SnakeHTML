@@ -5,10 +5,12 @@
         <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
     </head>
     <body>
-        <h1>Snake</h1>
-        <p>A Medium Article 
-            <a href="https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e" target="_blank">Tutorial</a>.
-        </p>
+        <div>
+            <h1>Snake</h1>
+            <p>A Medium Article 
+                <a href="https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e" target="_blank">Tutorial</a>.
+            </p>
+        </div>
         <div id="score">Click Start</div>
 
         <div id="buttonContainer" class="buttonContainer">
@@ -26,14 +28,16 @@
         
         <h4>Backlog:</h4>
         <ul>
-            <li>Start Button</li>
-            <li>Pause/Resume</li>
-            <li>Restart</li>
-            <li>High Score Box</li>
-            <li>Add to Portfolio Site</li>
-            <li>Difficulty Toggle</li>
-            <li>Report a Bug!</li>
+            <li class="complete">Start Button</li>
+            <li class="complete">Pause/Resume</li>
+            <li class="complete">Restart</li>
+            <li class="complete">High Score Box</li>
+            <li class="complete">Add to Portfolio Site</li>
+            <li>Color Selector</li>
             <li>Page Views ( instructions, about, etc )</li>
+            <li>Design</li>
+            <li>High Score Ticker</li>
+            <li>Report a Bug!</li>
             <li>360 map option</li>
             <li>Power Ups</li>
             <li>Timer Obstacle</li>
@@ -73,12 +77,17 @@
                 font-weight: 700;
                 font-size: 12px;
             }
+
+            .complete {
+                text-decoration: line-through;
+                text-decoration-color: chartreuse;
+            }
         </style>
 
     </body>
     <script>
         /** CONSTANTS **/
-        const GAME_SPEED = 100
+        const GAME_SPEED = 65
         const CANVAS_BORDER_COLOUR = 'black'
         const CANVAS_BACKGROUND_COLOUR = 'white'
         const SNAKE_COLOUR = 'lightgreen'
@@ -185,11 +194,11 @@
         // vertical velocity
         let dy = 0
         let highScore = [
-            { name: 'KLA', score: 1000 },
+            { name: 'KLA', score: 2500 },
+            { name: 'KLA', score: 1500 },
             { name: 'KLA', score: 500 },
             { name: 'KLA', score: 250 },
-            { name: 'KLA', score: 100 },
-            { name: 'KLA', score: 0 }
+            { name: 'KLA', score: 100 }
         ]
         let user
         
