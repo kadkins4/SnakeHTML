@@ -1,3 +1,33 @@
+html, body {
+    font-family: 'Orbitron', serif;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(102,9,121,1) 20%, rgba(32,4,119,1) 90%);
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: red;
+}
+
+.header {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 20px 0;
+}
+
 #gameCanvas {
     position: absolute;
     top: 55%;
@@ -8,7 +38,7 @@
 #score {
     text-align: center;
     font-size: 140px;
-    font-family: 'Antic-Slab', serif;
+    font-family: 'Orbitron', serif;
 }
 
 #resumeGame, #pauseGame, #restartGame {
@@ -25,7 +55,6 @@
 .buttonContainer button {
     margin: 0 5px;
     padding: 5px 10px;
-    font-family: 'Antic-Slab', serif;
     font-weight: 700;
     font-size: 12px;
 }
@@ -33,4 +62,8 @@
 .complete {
     text-decoration: line-through;
     text-decoration-color: chartreuse;
+}
+
+.highScore {
+    line-height: 1.5em;
 }

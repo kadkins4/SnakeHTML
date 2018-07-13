@@ -2,33 +2,37 @@
 <html>
     <head>
         <title>Snake Game</title>
-        <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
         <link rel="stylesheet" href="./main.css">
         <script src="./game.js" defer></script>
     </head>
     <body>
-        <div>
-            <h1>Snake</h1>
-            <p>A Medium Article 
-                <a href="https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e" target="_blank">Tutorial</a>.
-            </p>
-        </div>
-        <div id="score">Click Start</div>
-        
-        <div id="buttonContainer" class="buttonContainer">
-            <button id="startGame">Start Game</button>
-            <button id="pauseGame">Pause</button>
-            <button id="restartGame">Restart</button>
-            <button id="resumeGame">Resume Game</button>
-        </div>
-        
-        <div>
-            <h3>High Score</h3>
-            <ol id="highScoreList">
-            </ol>
-        </div>
-        
-        <canvas id="gameCanvas" width="300" height="300"><canvas>
+        <div class="container">
+
+            <div class="header">
+                <h1>Snake</h1>
+                <p class="subTitle">A Medium Article 
+                    <a href="https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e" target="_blank">Tutorial</a>.
+                </p>
+            </div>
+
+            <div id="score">Click Start</div>
             
+            <div id="buttonContainer" class="buttonContainer">
+                <button id="startGame">Start Game</button>
+                <button id="pauseGame">Pause</button>
+                <button id="restartGame">Restart</button>
+                <button id="resumeGame">Resume Game</button>
+            </div>
+            
+            <div class="highScore">
+                <h3>High Score</h3>
+                <ol id="highScoreList">
+                </ol>
+            </div>
+            
+            <canvas id="gameCanvas" width="300" height="300"><canvas>
+        </div>
+
     </body>
 </html>
