@@ -1,5 +1,4 @@
 /** CONSTANTS **/
-const GAME_SPEED = 65
 const CANVAS_BORDER_COLOUR = 'black'
 const CANVAS_BACKGROUND_COLOUR = 'white'
 const SNAKE_COLOUR = 'lightgreen'
@@ -21,6 +20,7 @@ if (SESSION_STORAGE.currentGame) {
 // game mechanics
 const SCORE_BOARD = document.getElementById('score')
 const HIGH_SCORE_LIST = document.getElementById('highScoreList')
+
 
 /** button game controls **/
 
@@ -62,7 +62,7 @@ function resumeGame () {
     dx = game.dx
     currentScore = game.currentScore
     gameRunning = true
-
+    
     // handle buttons
     RESUME_GAME.style.display = 'none'
     setTimeout( function displayPause() {
@@ -91,6 +91,8 @@ let snake = [
     {x: 110, y: 150 }
 ]
 
+// game speed
+let GAME_SPEED = 100
 // is game started
 let gameRunning = false
 // user score
@@ -106,11 +108,11 @@ let dx = 10
 // vertical velocity
 let dy = 0
 let highScore = [
-    { name: 'KLA', score: 2500 },
-    { name: 'KLA', score: 1500 },
-    { name: 'KLA', score: 500 },
-    { name: 'KLA', score: 250 },
-    { name: 'KLA', score: 100 }
+    { name: 'AAA', score: 2500 },
+    { name: 'AAA', score: 1500 },
+    { name: 'AAA', score: 500 },
+    { name: 'AAA', score: 250 },
+    { name: 'AAA', score: 100 }
 ]
 let user
 
@@ -121,7 +123,25 @@ let user
 })()
 
 
-// high score
+// score
+function numberCheck ( scoreToEval ) {
+    let tempNum = scoreToEval
+    if ( typeof tempNum !== 'number' ) {
+        tempNum = Number( tempNum )
+    }
+    tempNum = tempNum / 100
+    return Number.isInteger( tempNum )
+}
+
+function nextLevel () {
+    console.log('level up')
+    return GAME_SPEED -= 5
+}
+
+function checkScore () {
+    if ( numberCheck ( score ) === true ) return nextLevel()
+}
+
 function sortHighScore () {
     highScore.sort(( a, b ) => b.score-a.score )
 }
@@ -340,6 +360,7 @@ function advanceSnake() {
     if ( didEatFood ) {
         score += 10
         SCORE_BOARD.innerHTML = score
+        checkScore ()
         // add to snake body
         createFood()
     } else {

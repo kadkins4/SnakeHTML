@@ -10,6 +10,9 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    align-self: center;
+    max-width: 90vw;
+    margin: 10px 30px;
 }
 
 a {
@@ -21,18 +24,33 @@ a:hover {
 }
 
 .header {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10px 0 20px 0;
 }
 
+.subTitle {
+    margin: 0 0 10px 0;
+}
+
+.gameContainer {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
 #gameCanvas {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 10px 0 0 0;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    place-self: center;
+/*     justify-content: center; */
+/*     align-content: center; */
+/*     position: absolute; */
+/*     top: 55%; */
+/*     left: 50%; */
+/*     transform: translate(-50%, -50%); */
 }
 
 #score {
@@ -65,5 +83,17 @@ a:hover {
 }
 
 .highScore {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 1;
     line-height: 1.5em;
+    letter-spacing: .2em;
+}
+
+.highScore h3 {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: auto 0;
 }
