@@ -60,6 +60,7 @@ function resumeGame () {
     mySnake = game.mySnake
     dy = game.dy
     dx = game.dx
+    GAME_SPEED = gameSpeed
     currentScore = game.currentScore
     gameRunning = true
     
@@ -77,18 +78,19 @@ function saveSession () {
         mySnake: snake,
         currentScore: score,
         dx: dx,
-        dy: dy
+        dy: dy,
+        gameSpeed: GAME_SPEED
     }
     SESSION_STORAGE.setItem( 'currentGame', JSON.stringify( currentGame ) )
 }
 
 // snake object
 let snake = [
-    {x: 150, y: 150 },
-    {x: 140, y: 150 },
     {x: 130, y: 150 },
     {x: 120, y: 150 },
-    {x: 110, y: 150 }
+    {x: 110, y: 150 },
+    {x: 100, y: 150 },
+    {x: 90, y: 150 }
 ]
 
 // game speed
@@ -121,7 +123,6 @@ let user
     checkHighScore()
     createHighScore()
 })()
-
 
 // score
 function numberCheck ( scoreToEval ) {
@@ -209,14 +210,15 @@ function gameOver() {
     }
     SESSION_STORAGE.clear()
     snake = [
-        {x: 150, y: 150 },
-        {x: 140, y: 150 },
         {x: 130, y: 150 },
         {x: 120, y: 150 },
-        {x: 110, y: 150 }
+        {x: 110, y: 150 },
+        {x: 100, y: 150 },
+        {x: 90, y: 150 }
     ]
     dx = 10
     dy = 0
+    GAME_SPEED = 100
     gameRunning = false
     PAUSE_GAME.style.display = 'none'
     RESTART_GAME.style.display = 'block'

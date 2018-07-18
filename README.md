@@ -1,8 +1,8 @@
 # SnakeHTML
 ## Backlog:
-5. deploy to portfolio
+5. deploy to portfolio - in progress
 6. Color Selector - defer
-7. Page Views ( instructions, about, etc )
+7. Page Views ( instructions, about, etc ) - in progress
 8. Design - in progress
 9. High Score Ticker
 10. Report a Bug!

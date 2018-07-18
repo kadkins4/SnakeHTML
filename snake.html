@@ -3,11 +3,12 @@
     <head>
         <title>Snake Game</title>
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="./main.css">
-        <script src="./game.js" defer></script>
+        <script src="./game.js" async></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="app">
 
             <div class="header">
                 <h1>Snake</h1>
@@ -18,23 +19,79 @@
 
             <div id="score">Click Start</div>
             <div id="buttonContainer" class="buttonContainer">
-                <button id="startGame">Start Game</button>
-                <button id="pauseGame">Pause</button>
-                <button id="restartGame">Restart</button>
-                <button id="resumeGame">Resume Game</button>
+                <button 
+                    class="btn"
+                    id="startGame">Start Game</button>
+                <button 
+                    class="btn"
+                    id="pauseGame">Pause</button>
+                <button 
+                    class="btn"
+                    id="restartGame">Restart</button>
+                <button 
+                    class="btn"
+                    id="resumeGame">Resume Game</button>
             </div>
             
             <div class="gameContainer">
                 <div class="highScore">
-                    <h3>High Score</h3>
-                    <ol id="highScoreList">
-                    </ol>
+                    <!-- <div>
+                        <h3>High Score</h3>
+                        <ol id="highScoreList"></ol>
+                    </div>
+                    <div>
+                        <h3 
+                            class="btn">
+                            Directions
+                        </h3>
+                    </div> -->
+
+                    <div
+                        v-show="currentTab === 'showHighScore'">
+                        <h3>High Score</h3>
+                        <div>
+                            <button 
+                                class="btn"
+                                @click="toggleView(1)">Directions</button> |
+                            <button 
+                                class="btn"
+                                @click="toggleView(2)">Developer</button>
+                        </div>
+                        <ol id="highScoreList"></ol>
+                    </div>
+                    <div
+                        v-show="currentTab === 'showInformation'">
+                        <h3>Directions</h3>
+                        <div>
+                            <button 
+                                class="btn"
+                                @click="toggleView(2)">Developer</button> |
+                            <button 
+                                class="btn"
+                                @click="toggleView(0)">HighScore</button>
+                        </div>
+                        <p>Coming Soon.</p>
+                    </div>
+                    <div
+                        v-show="currentTab === 'showDeveloper'">
+                        <h3>Developer</h3>
+                        <div>
+                            <button 
+                                class="btn"
+                                @click="toggleView(0)">HighScore</button> |
+                            <button 
+                                class="btn"
+                                @click="toggleView(1)">Directions</button>
+                        </div>
+                        <p>Coming Soon.</p>
+                    </div>
                 </div>
             
                 <canvas id="gameCanvas" width="300" height="300"><canvas>
             </div>
 
         </div>
-
+        <!-- <script src="./vueMain.js" defer></script> -->
+        <script src="./backlog.js"></script>
     </body>
 </html>

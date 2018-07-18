@@ -38,6 +38,7 @@ a:hover {
 .gameContainer {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-top: 50px;
 }
 
 #gameCanvas {
@@ -45,12 +46,6 @@ a:hover {
     grid-column-start: 2;
     grid-column-end: 5;
     place-self: center;
-/*     justify-content: center; */
-/*     align-content: center; */
-/*     position: absolute; */
-/*     top: 55%; */
-/*     left: 50%; */
-/*     transform: translate(-50%, -50%); */
 }
 
 #score {
@@ -75,6 +70,25 @@ a:hover {
     padding: 5px 10px;
     font-weight: 700;
     font-size: 12px;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Orbitron', serif;
+    padding: 10px 5px 5px 5px;
+    background: transparent;
+    font-weight: 700;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid black;
+    color: white;
+    text-align: center;
+}
+
+.btn:hover {
+    color: chartreuse;
+    background: black;
 }
 
 .complete {
