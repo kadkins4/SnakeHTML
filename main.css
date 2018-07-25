@@ -111,3 +111,28 @@ a:hover {
     text-transform: uppercase;
     margin: auto 0;
 }
+
+.informationHeading {
+    padding: 0;
+    margin: 10px 0;
+}
+
+.informationContainer {
+    margin: 0;
+    padding: 0;
+}
+
+.informationContainer img {
+    max-width: 15vw;
+    text-align: center;
+}
+
+.smallText {
+    font-size: 12px;
+}
+
+#backlog li {
+    padding: 0px;
+    margin: 0 0 0 -20px;
+    font-size: 12px;
+}

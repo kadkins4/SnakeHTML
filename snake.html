@@ -8,7 +8,7 @@
         <script src="./game.js" async></script>
     </head>
     <body>
-        <div class="container" id="app">
+        <div class="container">
 
             <div class="header">
                 <h1>Snake</h1>
@@ -34,7 +34,7 @@
             </div>
             
             <div class="gameContainer">
-                <div class="highScore">
+                <div class="highScore" id="app">
                     <!-- <div>
                         <h3>High Score</h3>
                         <ol id="highScoreList"></ol>
@@ -52,7 +52,7 @@
                         <div>
                             <button 
                                 class="btn"
-                                @click="toggleView(1)">Directions</button> |
+                                @click="toggleView(1)">Information</button> |
                             <button 
                                 class="btn"
                                 @click="toggleView(2)">Developer</button>
@@ -61,7 +61,7 @@
                     </div>
                     <div
                         v-show="currentTab === 'showInformation'">
-                        <h3>Directions</h3>
+                        <h3>Information</h3>
                         <div>
                             <button 
                                 class="btn"
@@ -70,7 +70,14 @@
                                 class="btn"
                                 @click="toggleView(0)">HighScore</button>
                         </div>
-                        <p>Coming Soon.</p>
+                        <p class="informationHeading">Move around.</p>
+                        <div class="informationContainer">
+                            <img src="./assets/wasdarrow.jpeg" alt="to move around use W/A/S/D or  Up/Down/Left/Right" />
+                        </div>
+                        <p class="informationHeading">Pause/Resume.</p>
+                        <div class="informationContainer">
+                            <img src="./assets/wasdarrow.jpeg" alt="to move around use W/A/S/D or  Up/Down/Left/Right" />
+                        </div>
                     </div>
                     <div
                         v-show="currentTab === 'showDeveloper'">
@@ -81,9 +88,10 @@
                                 @click="toggleView(0)">HighScore</button> |
                             <button 
                                 class="btn"
-                                @click="toggleView(1)">Directions</button>
+                                @click="toggleView(1)">Information</button>
                         </div>
-                        <p>Coming Soon.</p>
+                        <p class="smallText">upcoming changes:</p>
+                        <ul id="backlog"></ul>
                     </div>
                 </div>
             
@@ -91,7 +99,7 @@
             </div>
 
         </div>
-        <!-- <script src="./vueMain.js" defer></script> -->
         <script src="./backlog.js"></script>
+        <script src="./vueMain.js" defer></script>
     </body>
 </html>

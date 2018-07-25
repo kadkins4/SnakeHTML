@@ -1,3 +1,11 @@
+/** GLOBAL **/
+// prevent arrow keys and spacebar from moving screen
+window.addEventListener("keydown", ( event ) => {
+    if ( ['ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'Space'].indexOf( event.code ) > -1 ) {
+        event.preventDefault()
+    }
+}, false)
+
 /** CONSTANTS **/
 const CANVAS_BORDER_COLOUR = 'black'
 const CANVAS_BACKGROUND_COLOUR = 'white'
@@ -60,12 +68,12 @@ function resumeGame () {
     mySnake = game.mySnake
     dy = game.dy
     dx = game.dx
-    GAME_SPEED = gameSpeed
+    GAME_SPEED = game.gameSpeed
     currentScore = game.currentScore
     gameRunning = true
     
+    main()
     // handle buttons
-    RESUME_GAME.style.display = 'none'
     setTimeout( function displayPause() {
         if ( gameRunning ) {
             return PAUSE_GAME.style.display = 'block'
@@ -92,14 +100,14 @@ let snake = [
     {x: 100, y: 150 },
     {x: 90, y: 150 }
 ]
-
 // game speed
-let GAME_SPEED = 100
+let initialGameSpeed = 100
+let GAME_SPEED = initialGameSpeed
 // is game started
 let gameRunning = false
 // user score
 let score
-// changing direction when true
+// changing 71 when true
 let changingDirection = false
 // food x-coordinate
 let foodX
@@ -218,7 +226,7 @@ function gameOver() {
     ]
     dx = 10
     dy = 0
-    GAME_SPEED = 100
+    GAME_SPEED = initialGameSpeed
     gameRunning = false
     PAUSE_GAME.style.display = 'none'
     RESTART_GAME.style.display = 'block'
@@ -226,13 +234,13 @@ function gameOver() {
 
 function addInit () {
     // prompt for initials
-    user = { name: prompt('Enter Your Initials (AAA)'), score: score }
+    user = { name: prompt( 'Enter Your Initials (AAA)' ), score: score }
     
     // check valid entry
-    if ( user.name.length <= 3 && typeof user.name === 'string' ) {
+    if ( user.name.length === 3 && typeof user.name === 'string' ) {
         user.name = user.name.toUpperCase()
         highScore.pop()
-        highScore.push(user)
+        highScore.push( user )
         sortHighScore()
         LOCAL_STORAGE.setItem( 'HighScore', JSON.stringify( highScore ) )
         createHighScore()
@@ -310,45 +318,58 @@ function drawSnakePart( snakePart ) {
 }
 
 function changeDirection ( event ) {
-    const LEFT_KEY = 37
-    const RIGHT_KEY = 39
-    const UP_KEY = 38
-    const DOWN_KEY = 40
-    const P_KEY = 80
+    const LEFT_KEY = 'ArrowLeft'
+    const RIGHT_KEY = 'ArrowRight'
+    const UP_KEY = 'ArrowUp'
+    const DOWN_KEY = 'ArrowDown'
+    const P_KEY = 'KeyP'
+    const W_KEY = 'KeyW'
+    const A_KEY = 'KeyA'
+    const S_KEY = 'KeyS'
+    const D_KEY = 'KeyD'
 
     if ( changingDirection ) return
 
     changingDirection = true
 
-    const keyPressed = event.keyCode
+    const keyPressed = event.code
     const goingUp = dy === -10
     const goingDown = dy === 10
     const goingLeft = dx === -10
     const goingRight = dx === 10
 
-    if ( keyPressed === LEFT_KEY && !goingRight ) {
+    // left
+    if ( ( keyPressed === LEFT_KEY || keyPressed === A_KEY ) && !goingRight ) {
         dx = -10
         dy = 0
     }
 
-    if ( keyPressed === RIGHT_KEY && !goingLeft ) {
+    // right
+    if ( ( keyPressed === RIGHT_KEY || keyPressed === D_KEY ) && !goingLeft ) {
         dx = 10
         dy = 0
     }
 
-    if ( keyPressed === DOWN_KEY && !goingUp ) {
+    // down
+    if ( ( keyPressed === DOWN_KEY || keyPressed === S_KEY ) && !goingUp ) {
         dx = 0
         dy = 10
     }
 
-    if ( keyPressed === UP_KEY && !goingDown ) {
+    // up
+    if ( ( keyPressed === UP_KEY || keyPressed === W_KEY ) && !goingDown ) {
         dx = 0
         dy = -10
     }
 
-    // pause game
-    if ( keyPressed === P_KEY && gameRunning === true ) {
-        pauseGame()
+    if ( keyPressed === P_KEY ) {
+        if ( gameRunning === false && SESSION_STORAGE.getItem('currentGame') ) {
+            // resume game when paused
+            resumeGame()
+        } else if ( keyPressed === P_KEY && gameRunning === true ) {
+            // pause game
+            pauseGame()
+        }
     }
 }
 
