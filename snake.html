@@ -35,17 +35,6 @@
             
             <div class="gameContainer">
                 <div class="highScore" id="app">
-                    <!-- <div>
-                        <h3>High Score</h3>
-                        <ol id="highScoreList"></ol>
-                    </div>
-                    <div>
-                        <h3 
-                            class="btn">
-                            Directions
-                        </h3>
-                    </div> -->
-
                     <div
                         v-show="currentTab === 'showHighScore'">
                         <h3>High Score</h3>
@@ -70,13 +59,13 @@
                                 class="btn"
                                 @click="toggleView(0)">HighScore</button>
                         </div>
-                        <p class="informationHeading">Move around.</p>
+                        <p class="informationHeading">Movement.</p>
                         <div class="informationContainer">
-                            <img src="./assets/wasdarrow.jpeg" alt="to move around use W/A/S/D or  Up/Down/Left/Right" />
+                            <img src="./assets/wasdarrow.jpeg" alt="Arrows or WASD to move." />
                         </div>
                         <p class="informationHeading">Pause/Resume.</p>
                         <div class="informationContainer">
-                            <img src="./assets/wasdarrow.jpeg" alt="to move around use W/A/S/D or  Up/Down/Left/Right" />
+                            <img src="./assets/letter_p.png" alt="Push P to Pause or Resume." />
                         </div>
                     </div>
                     <div
@@ -90,14 +79,16 @@
                                 class="btn"
                                 @click="toggleView(1)">Information</button>
                         </div>
-                        <p class="smallText">upcoming changes:</p>
+                        <div><img class="icon" src="./assets/myAvatar.svg" /></div>
+                        <p class="smallText">Changelog:</p>
                         <ul id="backlog"></ul>
+                        <p class="smallText"><a href="https://github.com/kadkins4/SnakeHTML" target="_blank">View Github.</a></p>
+                        <p class="smallText"><a href="http://kendalladkins.me" target="_blank">View Portfolio.</a></p>
                     </div>
                 </div>
             
                 <canvas id="gameCanvas" width="300" height="300"><canvas>
             </div>
-
         </div>
         <script src="./backlog.js"></script>
         <script src="./vueMain.js" defer></script>

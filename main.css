@@ -124,6 +124,7 @@ a:hover {
 
 .informationContainer img {
     max-width: 15vw;
+    max-height: 5vw;
     text-align: center;
 }
 
@@ -135,4 +136,18 @@ a:hover {
     padding: 0px;
     margin: 0 0 0 -20px;
     font-size: 12px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+
+.icon {
+    max-width: 5vw;
+    max-height: 5vh;
+    display: block;
+    margin: 5px auto;
 }
