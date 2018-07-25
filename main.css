@@ -128,6 +128,10 @@ a:hover {
     text-align: center;
 }
 
+.developerTab {
+    width: fit-content;
+}
+
 .smallText {
     font-size: 12px;
 }
@@ -138,16 +142,9 @@ a:hover {
     font-size: 12px;
 }
 
-.footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: flex-end;
-}
-
 .icon {
     max-width: 5vw;
     max-height: 5vh;
     display: block;
-    margin: 5px auto;
+    margin: 8px auto;
 }
